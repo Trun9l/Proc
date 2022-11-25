@@ -70,5 +70,5 @@ void OutShape(shape* s, ofstream& ofst) {
 		ofst << "Incorrect figure!" << endl;
 	}
 	ofst << ", density = " << s->density;
-	ofst << ", melting temperature = " << s->meltingPoint << endl;
+	ofst << ", melting temperature = " << s->meltingPoint << " ";
 }

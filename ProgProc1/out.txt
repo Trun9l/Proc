@@ -1,29 +1,19 @@
 Filled container. 
 Container contains 5 elements.
-0: It is Ball: r = 3, density = 3, melting temperature = 67
-volume = 28.26
-1: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13, melting temperature = 10
-volume = 6
-2: It is Parallelepiped: a = 1, b = 2, c = 3, density = 7.7, melting temperature = 17
-volume = 6
-3: It is Ball: r = 9, density = 5.6, melting temperature = 14
-volume = 254.34
-4: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21
-volume = 14731.4
+0: It is Ball: r = 3, density = 3, melting temperature = 67 volume = 28.26
+1: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13, melting temperature = 10 volume = 6
+2: It is Parallelepiped: a = 1, b = 2, c = 3, density = 7.7, melting temperature = 17 volume = 6
+3: It is Ball: r = 9, density = 5.6, melting temperature = 14 volume = 254.34
+4: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21 volume = 14731.4
 Only balls.
-0: It is Ball: r = 3, density = 3, melting temperature = 67
-3: It is Ball: r = 9, density = 5.6, melting temperature = 14
+0: It is Ball: r = 3, density = 3, melting temperature = 67 volume = 28.26
+3: It is Ball: r = 9, density = 5.6, melting temperature = 14 volume = 254.34
 Sort container by volume. 
 Container contains 5 elements.
-0: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21
-volume = 14731.4
-1: It is Ball: r = 9, density = 5.6, melting temperature = 14
-volume = 254.34
-2: It is Ball: r = 3, density = 3, melting temperature = 67
-volume = 28.26
-3: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13, melting temperature = 10
-volume = 6
-4: It is Parallelepiped: a = 1, b = 2, c = 3, density = 7.7, melting temperature = 17
-volume = 6
+0: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21 volume = 14731.4
+1: It is Ball: r = 9, density = 5.6, melting temperature = 14 volume = 254.34
+2: It is Ball: r = 3, density = 3, melting temperature = 67 volume = 28.26
+3: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13, melting temperature = 10 volume = 6
+4: It is Parallelepiped: a = 1, b = 2, c = 3, density = 7.7, melting temperature = 17 volume = 6
 Empty container. 
 Container contains 0 elements.

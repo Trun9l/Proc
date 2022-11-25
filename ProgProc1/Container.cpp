@@ -123,6 +123,7 @@ void OutBalls(container& c, ofstream& ofst) {
 		{
 			ofst << i << ": ";
 			OutShape(pointer->sp, ofst);
+			ofst << "volume = " << volume(pointer->sp) << endl;
 		}
 		pointer = pointer->next;
 	}
