@@ -2,8 +2,8 @@
 #include "Shape.h"
 #include "Node.h"
 #include <fstream>
-struct container
+struct Container
 {
 	int size;
-	node* head;
+	Node* head;
 };

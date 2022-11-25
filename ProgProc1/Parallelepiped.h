@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
-struct parallelepiped {
+struct Parallelepiped
+{
 	int a, b, c; // ребра
 };

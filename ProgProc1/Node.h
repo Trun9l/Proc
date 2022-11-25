@@ -1,9 +1,9 @@
 #pragma once
 #include "Shape.h"
 using namespace std;
-struct node
+struct Node
 {
-	shape* sp;
-	node* next;
+	Shape* sp;
+	Node* next;
 };
 

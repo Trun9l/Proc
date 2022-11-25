@@ -2,15 +2,15 @@
 #include <fstream>
 #include <cmath>
 using namespace std;
-void In(tetrahedron& b, ifstream& ifst)
+void In(Tetrahedron& b, ifstream& ifst)
 {
 	ifst >> b.a ;
 }
-void Out(tetrahedron& b, ofstream& ofst)
+void Out(Tetrahedron& b, ofstream& ofst)
 {
 	ofst << "It is Tetrahedron: a = " << b.a ;
 }
-float volume(tetrahedron& p)
+float Volume(Tetrahedron& p)
 {
 	return (p.a * p.a * p.a) * (sqrt(2) / 12);
 }

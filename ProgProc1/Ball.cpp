@@ -1,15 +1,15 @@
 #include "Ball.h"
 #include <fstream>
 using namespace std;
-void In(ball& b, ifstream& ifst)
+void In(Ball& b, ifstream& ifst)
 {
 	ifst >> b.r ;
 }
-void Out(ball& b, ofstream& ofst)
+void Out(Ball& b, ofstream& ofst)
 {
 	ofst << "It is Ball: r = "	<< b.r;
 }
-float volume(ball& b)
+float Volume(Ball& b)
 {
 	float pi = 3.14;
 	return (4 / 3) * pi * b.r * b.r;

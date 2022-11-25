@@ -3,16 +3,18 @@
 #include "Parallelepiped.h"
 #include "Tetrahedron.h"
 #include <fstream>
-struct shape {
+struct Shape
+{
 	// значения ключей для каждой из фигур
-	enum class key { BALL, PARALLELEPIPED, TETRAHEDRON	};
-	key k; // ключ
+	enum class Key { BALL, PARALLELEPIPED, TETRAHEDRON	};
+	Key k; // ключ
 	float density;
 	int meltingPoint;
 	// используемые альтернативы
-	union { // используем включение
-		ball b;
-		parallelepiped p;
-		tetrahedron t;
+	union
+	{ // используем включение
+		Ball b;
+		Parallelepiped p;
+		Tetrahedron t;
 	};
 };

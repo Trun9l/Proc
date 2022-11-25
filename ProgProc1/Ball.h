@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
-struct ball {
+struct Ball
+{
 	int r; // радиус
 };
