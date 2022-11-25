@@ -7,6 +7,7 @@ void Init(container& c);
 void Clear(container& c);
 void In(container& c, ifstream& ifst);
 void Out(container& c, ofstream& ofst);
+void OutBalls(container& c, ofstream& ofst);
 int main(int argc, char* argv[])
 {
 	if (argc != 3) {
@@ -22,6 +23,7 @@ int main(int argc, char* argv[])
 	In(c, ifst);
 	ofst << "Filled container. " << endl;
 	Out(c, ofst);
+	OutBalls(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
 	Out(c, ofst);
