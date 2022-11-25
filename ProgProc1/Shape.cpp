@@ -5,6 +5,8 @@ void In(ball& b, ifstream& ist);
 void Out(ball& b, ofstream& ofst);
 void In(parallelepiped& p, ifstream& ist);
 void Out(parallelepiped& p, ofstream& ofst);
+void In(tetrahedron& b, ifstream& ifst);
+void Out(tetrahedron& b, ofstream& ofst);
 // ¬вод параметров обобщенной фигуры из файла
 shape* InShape(ifstream& ifst)
 {
@@ -24,6 +26,12 @@ shape* InShape(ifstream& ifst)
 		ifst >> sp->density;
 		In(sp->p, ifst);
 		return sp;
+	case 3:
+		sp = new shape;
+		sp->k = shape::key::TETRAHEDRON;
+		ifst >> sp->density;
+		In(sp->t, ifst);
+		return sp;
 	default:
 		return 0;
 	}
@@ -36,6 +44,10 @@ void OutShape(shape* s, ofstream& ofst) {
 		break;
 	case shape::key::PARALLELEPIPED:
 		Out(s->p, ofst);
+		ofst << ", density = " << s->density << endl;
+		break;
+	case shape::key::TETRAHEDRON:
+		Out(s->t, ofst);
 		ofst << ", density = " << s->density << endl;
 		break;
 	default:
