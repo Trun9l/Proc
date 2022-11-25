@@ -9,7 +9,3 @@ void Out(parallelepiped& p, ofstream& ofst)
 {
 	ofst << "It is Parallelepiped: a = " << p.a << ", b = " << p.b << ", c = " << p.c;
 }
-float volume(parallelepiped& p)
-{
-	return p.a * p.b * p.c;
-}

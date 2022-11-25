@@ -3,7 +3,6 @@
 using namespace std;
 shape* InShape(ifstream& ifst);
 void OutShape(shape* s, ofstream& ofst);
-float volume(shape* s);
 // Очистка контейнера от элементов
 // (освобождение памяти)
 // Инициализация контейнера
@@ -71,58 +70,49 @@ void Out(container& c, ofstream& ofst) {
 		//container* pointer = c;
 		ofst << i << ": ";
 		OutShape(pointer->sp, ofst);
-		ofst << "volume = " << volume(pointer->sp) << endl;
 		pointer = pointer->next;
 	}
 }
-bool Compare(shape* first, shape* second) {
-	return volume(first) < volume(second);
-}
-void ChangePlaces(node& pointer1, node& pointer2)
+void MultiMethod(container& c, ofstream& ofst)
 {
-	shape*& tempSp = pointer1.sp;
-	//node*& tempNext = pointer1.next;
-	pointer1.sp = pointer2.sp;
-	//pointer1.next = pointer2.next;
-	pointer2.sp = tempSp;
-	//pointer2.next = tempNext;
-}
-node* NodeAt(container& c, int x)
-{
-	node* current = c.head;
-	for (int i = 0; i < x; ++i)
-	{
-		current = current->next;
-	}
-	return current;
-}
-void Sort(container& c)
-{
-	for (int i = 0; i < c.size - 1; i++)
-	{
-		node* nodeAtI = NodeAt(c, i);
-		for (int j = i + 1; j < c.size; j++) {
-			node* nodeAtJ = NodeAt(c, j);
-			if (Compare(nodeAtI->sp, nodeAtJ->sp)) {
-				shape* tmp = nodeAtI->sp;
-				nodeAtI->sp = nodeAtJ->sp;
-				nodeAtJ->sp = tmp;
-			}
-		}
-	}
-}
-
-
-void OutBalls(container& c, ofstream& ofst) {
 	int length = GetLength(c);
-	ofst << "Only balls." << endl;
+	ofst << "Multimethod." << endl;
 	node* pointer = c.head;
-	for (int i = 0; i < length; i++) {
-		//container* pointer = c;
-		if (pointer->sp->k == shape::key::BALL)
+	for (int i = 0; i < length - 1; i++)
+	{
+		switch (pointer->sp->k)
 		{
-			ofst << i << ": ";
-			OutShape(pointer->sp, ofst);
+		case shape::key::BALL:
+			switch (pointer->next->sp->k)
+			{
+			case shape::key::BALL:
+				ofst << "Two balls" << endl;
+				break;
+			case shape::key::PARALLELEPIPED:
+				ofst << "One ball and one parallelepiped" << endl;
+				break;
+			default:
+				ofst << "Unknown second type" << endl;
+				break;
+			}
+			break;
+		case shape::key::PARALLELEPIPED:
+			switch (pointer->next->sp->k)
+			{
+			case shape::key::BALL:
+				ofst << "First is a parallelepiped, second is a ball" << endl;
+				break;
+			case shape::key::PARALLELEPIPED:
+				ofst << "We have two parallelepipeds" << endl;
+				break;
+			default:
+				ofst << "Unknown second type" << endl;
+				break;
+			}
+			break;
+		default:
+			ofst << "Unknown first type" << endl;
+			break;
 		}
 		pointer = pointer->next;
 	}
