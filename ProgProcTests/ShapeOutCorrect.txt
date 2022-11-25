@@ -1,0 +1,1 @@
+It is Ball: r = 5, density = 17, melting temperature = 10 
