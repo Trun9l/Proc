@@ -111,3 +111,18 @@ void Sort(container& c)
 		}
 	}
 }
+}
+void OutBalls(container& c, ofstream& ofst) {
+	int length = GetLength(c);
+	ofst << "Only balls." << endl;
+	node* pointer = c.head;
+	for (int i = 0; i < length; i++) {
+		//container* pointer = c;
+		if (pointer->sp->k == shape::key::BALL)
+		{
+			ofst << i << ": ";
+			OutShape(pointer->sp, ofst);
+		}
+		pointer = pointer->next;
+	}
+}
