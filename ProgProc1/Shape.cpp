@@ -47,6 +47,7 @@ shape* InShape(ifstream& ifst)
 	case 3:
 		sp = new shape;
 		sp->k = shape::key::TETRAHEDRON;
+		ifst >> sp->meltingPoint;
 		ifst >> sp->density;
 		In(sp->t, ifst);
 		return sp;
@@ -64,7 +65,6 @@ void OutShape(shape* s, ofstream& ofst) {
 		break;
 	case shape::key::TETRAHEDRON:
 		Out(s->t, ofst);
-		ofst << ", density = " << s->density << endl;
 		break;
 	default:
 		ofst << "Incorrect figure!" << endl;

@@ -1,12 +1,14 @@
 ﻿#include <iostream>
 #include <fstream>
 #include "Container.h"
+//#include "Sort.h"
 #include <crtdbg.h>
 using namespace std;
 void Init(container& c);
 void Clear(container& c);
 void In(container& c, ifstream& ifst);
 void Out(container& c, ofstream& ofst);
+void Sort(container& c);
 int main(int argc, char* argv[])
 {
 	if (argc != 3) {
@@ -21,6 +23,9 @@ int main(int argc, char* argv[])
 	Init(c);
 	In(c, ifst);
 	ofst << "Filled container. " << endl;
+	Out(c, ofst);
+	ofst << "Sort container by volume. " << endl;
+	Sort(c);
 	Out(c, ofst);
 	Clear(c);
 	ofst << "Empty container. " << endl;
