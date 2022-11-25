@@ -7,6 +7,7 @@ struct shape {
 	enum class key { BALL, PARALLELEPIPED };
 	key k; // ключ
 	float density;
+	int meltingPoint;
 	// используемые альтернативы
 	union { // используем включение
 		ball b;

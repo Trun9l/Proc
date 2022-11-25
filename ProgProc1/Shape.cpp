@@ -15,12 +15,14 @@ shape* InShape(ifstream& ifst)
 	case 1:
 		sp = new shape;
 		sp->k = shape::key::BALL;
+		ifst >> sp->meltingPoint;
 		ifst >> sp->density;
 		In(sp->b, ifst);
 		return sp;
 	case 2:
 		sp = new shape;
 		sp->k = shape::key::PARALLELEPIPED;
+		ifst >> sp->meltingPoint;
 		ifst >> sp->density;
 		In(sp->p, ifst);
 		return sp;
@@ -32,13 +34,13 @@ void OutShape(shape* s, ofstream& ofst) {
 	switch (s->k) {
 	case shape::key::BALL:
 		Out(s->b, ofst);
-		ofst << ", density = " << s->density << endl;
 		break;
 	case shape::key::PARALLELEPIPED:
 		Out(s->p, ofst);
-		ofst << ", density = " << s->density << endl;
 		break;
 	default:
 		ofst << "Incorrect figure!" << endl;
 	}
+	ofst << ", density = " << s->density;
+	ofst << ", melting temperature = " << s->meltingPoint << endl;
 }

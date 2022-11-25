@@ -1,7 +1,8 @@
 Filled container. 
-Container contains 3 elements.
-0: It is Ball: r = 3, density = 3
-1: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13
-2: It is Ball: r = 9, density = 5.6
+Container contains 4 elements.
+0: It is Ball: r = 3, density = 3, melting temperature = 67
+1: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13, melting temperature = 10
+2: It is Parallelepiped: a = 1, b = 2, c = 3, density = 7.7, melting temperature = 17
+3: It is Ball: r = 9, density = 5.6, melting temperature = 14
 Empty container. 
 Container contains 0 elements.
