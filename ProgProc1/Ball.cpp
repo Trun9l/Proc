@@ -4,6 +4,16 @@ using namespace std;
 void In(ball& b, ifstream& ifst)
 {
 	ifst >> b.r ;
+	if (ifst.fail())
+	{
+		printf_s("Can't read radius\n");
+		exit(-1);
+	}
+	if (b.r <= 0)
+	{
+		printf_s("Negative radius\n");
+		exit(-1);
+	}
 }
 void Out(ball& b, ofstream& ofst)
 {

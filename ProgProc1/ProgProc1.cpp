@@ -18,6 +18,11 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 	ifstream ifst(argv[1]);
+	if (!ifst.is_open())
+	{
+		cout << "Can't open input file" << endl;
+		return -1;
+	}
 	ofstream ofst(argv[2]);
 	cout << "Start" << endl;
 	container c;

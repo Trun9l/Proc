@@ -5,6 +5,16 @@ using namespace std;
 void In(tetrahedron& b, ifstream& ifst)
 {
 	ifst >> b.a ;
+	if (ifst.fail())
+	{
+		printf_s("Can't read a side of tetrahedron\n");
+		exit(-1);
+	}
+	if (b.a <= 0)
+	{
+		printf_s("Negative a side of tetrahedron\n");
+		exit(-1);
+	}
 }
 void Out(tetrahedron& b, ofstream& ofst)
 {
