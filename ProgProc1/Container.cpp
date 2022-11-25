@@ -111,7 +111,8 @@ void Sort(container& c)
 		}
 	}
 }
-}
+
+
 void OutBalls(container& c, ofstream& ofst) {
 	int length = GetLength(c);
 	ofst << "Only balls." << endl;

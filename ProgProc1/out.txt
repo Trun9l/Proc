@@ -10,6 +10,9 @@ volume = 6
 volume = 254.34
 4: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21
 volume = 14731.4
+Only balls.
+0: It is Ball: r = 3, density = 3, melting temperature = 67
+3: It is Ball: r = 9, density = 5.6, melting temperature = 14
 Sort container by volume. 
 Container contains 5 elements.
 0: It is Tetrahedron: a = 50, density = 9.8, melting temperature = 21

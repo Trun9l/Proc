@@ -12,5 +12,5 @@ void Out(tetrahedron& b, ofstream& ofst)
 }
 float volume(tetrahedron& p)
 {
-	return p.a * p.a * p.a * sqrt(2) / 12;
+	return (p.a * p.a * p.a) * (sqrt(2) / 12);
 }
