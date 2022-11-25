@@ -145,6 +145,7 @@
     <ClCompile Include="Parallelepiped.cpp" />
     <ClCompile Include="ProgProc1.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Tetrahedron.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Parallelepiped.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="Tetrahedron.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

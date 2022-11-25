@@ -3,6 +3,7 @@
 using namespace std;
 shape* InShape(ifstream& ifst);
 void OutShape(shape* s, ofstream& ofst);
+float volume(shape* s);
 // Очистка контейнера от элементов
 // (освобождение памяти)
 // Инициализация контейнера
@@ -70,6 +71,59 @@ void Out(container& c, ofstream& ofst) {
 		//container* pointer = c;
 		ofst << i << ": ";
 		OutShape(pointer->sp, ofst);
+		ofst << "volume = " << volume(pointer->sp) << endl;
+		pointer = pointer->next;
+	}
+}
+bool Compare(shape* first, shape* second) {
+	return volume(first) < volume(second);
+}
+void ChangePlaces(node& pointer1, node& pointer2)
+{
+	shape*& tempSp = pointer1.sp;
+	//node*& tempNext = pointer1.next;
+	pointer1.sp = pointer2.sp;
+	//pointer1.next = pointer2.next;
+	pointer2.sp = tempSp;
+	//pointer2.next = tempNext;
+}
+node* NodeAt(container& c, int x)
+{
+	node* current = c.head;
+	for (int i = 0; i < x; ++i)
+	{
+		current = current->next;
+	}
+	return current;
+}
+void Sort(container& c)
+{
+	for (int i = 0; i < c.size - 1; i++)
+	{
+		node* nodeAtI = NodeAt(c, i);
+		for (int j = i + 1; j < c.size; j++) {
+			node* nodeAtJ = NodeAt(c, j);
+			if (Compare(nodeAtI->sp, nodeAtJ->sp)) {
+				shape* tmp = nodeAtI->sp;
+				nodeAtI->sp = nodeAtJ->sp;
+				nodeAtJ->sp = tmp;
+			}
+		}
+	}
+}
+
+
+void OutBalls(container& c, ofstream& ofst) {
+	int length = GetLength(c);
+	ofst << "Only balls." << endl;
+	node* pointer = c.head;
+	for (int i = 0; i < length; i++) {
+		//container* pointer = c;
+		if (pointer->sp->k == shape::key::BALL)
+		{
+			ofst << i << ": ";
+			OutShape(pointer->sp, ofst);
+		}
 		pointer = pointer->next;
 	}
 }
@@ -91,6 +145,9 @@ void MultiMethod(container& c, ofstream& ofst)
 			case shape::key::PARALLELEPIPED:
 				ofst << "One ball and one parallelepiped" << endl;
 				break;
+			case shape::key:: TETRAHEDRON:
+				ofst << "One ball and one tetrahedron" << endl;
+				break;
 			default:
 				ofst << "Unknown second type" << endl;
 				break;
@@ -104,6 +161,26 @@ void MultiMethod(container& c, ofstream& ofst)
 				break;
 			case shape::key::PARALLELEPIPED:
 				ofst << "We have two parallelepipeds" << endl;
+				break;
+			case shape::key::TETRAHEDRON:
+				ofst << "First is a parallelepiped, second is a tetrahedron" << endl;
+				break;
+			default:
+				ofst << "Unknown second type" << endl;
+				break;
+			}
+			break;
+		case shape::key::TETRAHEDRON:
+			switch (pointer->next->sp->k)
+			{
+			case shape::key::BALL:
+				ofst << "1 tetrahedron, 2 ball" << endl;
+				break;
+			case shape::key::PARALLELEPIPED:
+				ofst << "1 tetrahedron, 2 parallelepiped" << endl;
+				break;
+			case shape::key::TETRAHEDRON:
+				ofst << "2 tetrahedrons" << endl;
 				break;
 			default:
 				ofst << "Unknown second type" << endl;
