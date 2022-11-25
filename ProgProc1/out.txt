@@ -1,0 +1,7 @@
+Filled container. 
+Container contains 3 elements.
+0: It is Ball: r = 3, density = 3
+1: It is Parallelepiped: a = 1, b = 2, c = 3, density = 6.13
+2: It is Ball: r = 9, density = 5.6
+Empty container. 
+Container contains 0 elements.
