@@ -75,3 +75,39 @@ void Out(container& c, ofstream& ofst) {
 		pointer = pointer->next;
 	}
 }
+bool Compare(shape* first, shape* second) {
+	return volume(first) < volume(second);
+}
+void ChangePlaces(node& pointer1, node& pointer2)
+{
+	shape*& tempSp = pointer1.sp;
+	//node*& tempNext = pointer1.next;
+	pointer1.sp = pointer2.sp;
+	//pointer1.next = pointer2.next;
+	pointer2.sp = tempSp;
+	//pointer2.next = tempNext;
+}
+node* NodeAt(container& c, int x)
+{
+	node* current = c.head;
+	for (int i = 0; i < x; ++i)
+	{
+		current = current->next;
+	}
+	return current;
+}
+void Sort(container& c)
+{
+	for (int i = 0; i < c.size - 1; i++)
+	{
+		node* nodeAtI = NodeAt(c, i);
+		for (int j = i + 1; j < c.size; j++) {
+			node* nodeAtJ = NodeAt(c, j);
+			if (Compare(nodeAtI->sp, nodeAtJ->sp)) {
+				shape* tmp = nodeAtI->sp;
+				nodeAtI->sp = nodeAtJ->sp;
+				nodeAtJ->sp = tmp;
+			}
+		}
+	}
+}
