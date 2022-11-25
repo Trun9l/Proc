@@ -3,6 +3,7 @@
 using namespace std;
 shape* InShape(ifstream& ifst);
 void OutShape(shape* s, ofstream& ofst);
+float volume(shape* s);
 // Очистка контейнера от элементов
 // (освобождение памяти)
 // Инициализация контейнера
@@ -70,6 +71,7 @@ void Out(container& c, ofstream& ofst) {
 		//container* pointer = c;
 		ofst << i << ": ";
 		OutShape(pointer->sp, ofst);
+		ofst << "volume = " << volume(pointer->sp) << endl;
 		pointer = pointer->next;
 	}
 }
