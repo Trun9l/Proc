@@ -9,6 +9,7 @@ void In(tetrahedron& b, ifstream& ifst);
 void Out(tetrahedron& b, ofstream& ofst);
 float volume(parallelepiped& p);
 float volume(ball& b);
+float volume(tetrahedron& p);
 float volume(shape* s)
 {
 	switch (s->k) {
@@ -16,6 +17,8 @@ float volume(shape* s)
 		return volume(s->b);
 	case shape::key::PARALLELEPIPED:
 		return volume(s->p);
+	case shape::key::TETRAHEDRON:
+		return volume(s->t);
 	default:
 		return -1;
 	}
@@ -30,12 +33,14 @@ shape* InShape(ifstream& ifst)
 	case 1:
 		sp = new shape;
 		sp->k = shape::key::BALL;
+		ifst >> sp->meltingPoint;
 		ifst >> sp->density;
 		In(sp->b, ifst);
 		return sp;
 	case 2:
 		sp = new shape;
 		sp->k = shape::key::PARALLELEPIPED;
+		ifst >> sp->meltingPoint;
 		ifst >> sp->density;
 		In(sp->p, ifst);
 		return sp;
@@ -53,11 +58,9 @@ void OutShape(shape* s, ofstream& ofst) {
 	switch (s->k) {
 	case shape::key::BALL:
 		Out(s->b, ofst);
-		ofst << ", density = " << s->density << endl;
 		break;
 	case shape::key::PARALLELEPIPED:
 		Out(s->p, ofst);
-		ofst << ", density = " << s->density << endl;
 		break;
 	case shape::key::TETRAHEDRON:
 		Out(s->t, ofst);
@@ -66,4 +69,6 @@ void OutShape(shape* s, ofstream& ofst) {
 	default:
 		ofst << "Incorrect figure!" << endl;
 	}
+	ofst << ", density = " << s->density;
+	ofst << ", melting temperature = " << s->meltingPoint << endl;
 }

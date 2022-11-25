@@ -7,5 +7,6 @@ volume = 6
 2: It is Ball: r = 9, density = 5.6
 volume = 254.34
 3: It is Tetrahedron: a = 50, density = 9.8
+volume = 14731.4
 Empty container. 
 Container contains 0 elements.
