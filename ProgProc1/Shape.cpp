@@ -7,6 +7,19 @@ void In(parallelepiped& p, ifstream& ist);
 void Out(parallelepiped& p, ofstream& ofst);
 void In(tetrahedron& b, ifstream& ifst);
 void Out(tetrahedron& b, ofstream& ofst);
+float volume(parallelepiped& p);
+float volume(ball& b);
+float volume(shape* s)
+{
+	switch (s->k) {
+	case shape::key::BALL:
+		return volume(s->b);
+	case shape::key::PARALLELEPIPED:
+		return volume(s->p);
+	default:
+		return -1;
+	}
+}
 // ¬вод параметров обобщенной фигуры из файла
 shape* InShape(ifstream& ifst)
 {
